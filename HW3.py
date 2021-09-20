@@ -8,7 +8,7 @@
 import random
 
 # Create the class Crystal_Ball
-class Crystal_Ball:
+class Crystal_Ball: 
 
     # create the constructor (__init__) method
     # it takes as input: a list of possible predictions
