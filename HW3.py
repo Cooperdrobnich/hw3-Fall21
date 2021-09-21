@@ -10,6 +10,15 @@ import random
 # Create the class Crystal_Ball
 class Crystal_Ball: 
 
+    def __init__(self, prediction_list, possible_names):
+        self.prediction_list = prediction_list
+        self.possible_names = possible_names
+        self.prediction_history_list = []
+        name_history_list = []
+
+
+    
+
     # create the constructor (__init__) method
     # it takes as input: a list of possible predictions
     # it takes as input: a list of possible names
