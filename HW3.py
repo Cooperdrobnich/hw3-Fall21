@@ -17,7 +17,9 @@ class Crystal_Ball:
         name_history_list = []
 
 
-    
+    def __str__(self):
+        return str(self.prediction_list)
+
 
     # create the constructor (__init__) method
     # it takes as input: a list of possible predictions
