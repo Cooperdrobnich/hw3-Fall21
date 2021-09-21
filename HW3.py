@@ -8,20 +8,7 @@
 import random
 
 # Create the class Crystal_Ball
-class Crystal_Ball: 
-
-    def __init__(self, prediction_list, possible_names):
-        self.prediction_list = prediction_list
-        self.possible_names = possible_names
-        self.prediction_history_list = []
-        name_history_list = []
-
-
-    def __str__(self):
-        return str(self.prediction_list)
-
-
-    # create the constructor (__init__) method
+ # create the constructor (__init__) method
     # it takes as input: a list of possible predictions
     # it takes as input: a list of possible names
     # it sets this object's prediction_list (instance variable) to the passed list of possible predictions
@@ -59,6 +46,38 @@ class Crystal_Ball:
     # it generates a random response n times by calling predict.
     # It prints the counts for each prediction index, and
     # prints the most frequently occurring prediction index and prediction
+class Crystal_Ball:
+
+    def __init__(self, prediction_list, name_list):
+        self.prediction_list = prediction_list
+        self.name_list = name_list
+        self.prediction_history_list = []
+        self.name_history_list = []
+        
+
+
+    def __str__(self):
+        return str(self.prediction_list)
+
+    def predict(self, name):
+        prediction = random.randrange(0, self.prediction_list)
+        self.prediction_history_list.append(prediction)
+        name = random.randrange(0, self.name_list)
+        self.name_history_list.append(name) 
+        self.name_list.append(name)
+            
+
+    def check_name(self, name):
+        if name in self.name_list:
+            return "I already have that name!"
+        else:
+            return self.prediction_list
+
+    def print_history(self):
+        for i in self.prediction_history_list:
+            print(str(i) + " " - str(self.name_list))
+        if self.prediction_history_list == []:
+            return "None yet"
 
 
 def main():
@@ -74,7 +93,7 @@ def main():
     bot = Crystal_Ball(prediction_list, name_list)
 
     # get the first name or quit
-
+    
     # loop while name is not "quit"
 
         # get the result from check_name
@@ -95,7 +114,7 @@ def test():
 
     print()
     print("Testing Crystal Ball:")
-    bot2 = Crystal_Ball(prediction_list,name_list)
+    bot2 = Crystal_Ball(prediction_list, name_list)
 
     print("Testing the __str__ method")
     print(bot2)
@@ -122,7 +141,7 @@ def test():
     print()
 
     print("Printing name_list")
-    print(bot2.check_name_list())
+    print(bot2.check_name("Mike"))
     print()
 
     #EXTRA POINTS
