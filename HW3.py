@@ -73,10 +73,13 @@ class Crystal_Ball:
             return self.predict(name)
 
     def print_history(self):
+        v1 = self.prediction_history_list
+        v2 = self.name_history_list
         if len(self.prediction_history_list) == 0:
             print("None yet")
         for index in range(len(self.prediction_history_list)):
-            print("[",self.prediction_history_list[index],"]", self.prediction_list[self.prediction_history_list[index]], " - ", "[", self.name_history_list[index],"]", self.name_list[self.name_history_list[index]])
+
+            print("[",v1[index],"]", self.prediction_list[v1[index]], " - ", "[", v2[index],"]", self.name_list[v2[index]])
 
 
 def main():
@@ -90,10 +93,18 @@ def main():
     # Replace the name_list with your desired names!
     name_list = ['Yasmeen', 'Xinghui', 'Elaina', 'Anna', 'Ewelina', 'Nik']
     bot = Crystal_Ball(prediction_list, name_list)
-
-    get_name = input("type your first name or type 'quit' to exit: ")
-    if get_name != "quit":
+    while True:
+        get_name = input("type your first name or type 'quit' to exit: ")
+        if get_name == "quit":
+            print("exiting the statement")
+            break
         print(bot.check_name(get_name))
+    
+
+        
+
+
+    
         
     
         
