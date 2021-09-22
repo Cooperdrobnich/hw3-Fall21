@@ -1,7 +1,7 @@
-# Your name:
-# Your student id:
-# Your email:
-# List who you have worked with on this homework:
+# Your name: Cooper Drobnich
+# Your student id: 8426 6316
+# Your email: Drobnich@umich.edu
+# List who you have worked with on this homework: Adam Brenner and Samer Yassir
 
 
 # import the random module for use in this program
@@ -54,30 +54,29 @@ class Crystal_Ball:
         self.prediction_history_list = []
         self.name_history_list = []
         
-
-
     def __str__(self):
         return str(self.prediction_list)
+          
 
     def predict(self, name):
-        prediction = random.randrange(0, self.prediction_list)
-        self.prediction_history_list.append(prediction)
-        name = random.randrange(0, self.name_list)
-        self.name_history_list.append(name) 
+        the_prediction_index = random.randrange(0, len(self.prediction_list) - 1)
+        self.prediction_history_list.append(the_prediction_index)
+        the_name_index = random.randrange(0, len(self.name_list) - 1)
+        self.name_history_list.append(the_name_index) 
         self.name_list.append(name)
-            
+        return str(self.prediction_list[the_prediction_index]) + str(self.name_list[the_name_index])
 
     def check_name(self, name):
         if name in self.name_list:
             return "I already have that name!"
         else:
-            return self.prediction_list
+            return self.predict(name)
 
     def print_history(self):
-        for i in self.prediction_history_list:
-            print(str(i) + " " - str(self.name_list))
-        if self.prediction_history_list == []:
-            return "None yet"
+        if len(self.prediction_history_list) == 0:
+            print("None yet")
+        for index in range(len(self.prediction_history_list)):
+            print("[",self.prediction_history_list[index],"]", self.prediction_list[self.prediction_history_list[index]], " - ", "[", self.name_history_list[index],"]", self.name_list[self.name_history_list[index]])
 
 
 def main():
@@ -92,6 +91,16 @@ def main():
     name_list = ['Yasmeen', 'Xinghui', 'Elaina', 'Anna', 'Ewelina', 'Nik']
     bot = Crystal_Ball(prediction_list, name_list)
 
+    get_name = input("type your first name or type 'quit' to exit: ")
+    if get_name != "quit":
+        print(bot.check_name(get_name))
+        
+    
+        
+
+
+    
+    
     # get the first name or quit
     
     # loop while name is not "quit"
@@ -141,7 +150,7 @@ def test():
     print()
 
     print("Printing name_list")
-    print(bot2.check_name("Mike"))
+    print(bot2.name_list)
     print()
 
     #EXTRA POINTS
